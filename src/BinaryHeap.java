@@ -2,7 +2,6 @@ public class BinaryHeap implements Heap{
 
     private int[] heap;
     private int index;
-
     public BinaryHeap(int capacity){
         heap = new int[capacity];
         index = -1;
@@ -14,7 +13,6 @@ public class BinaryHeap implements Heap{
         System.arraycopy(heap,0,newHeap,0,heap.length);
         heap = newHeap;
     }
-
 
     public boolean isFull(){
         return index == heap.length - 1;
@@ -68,6 +66,8 @@ public class BinaryHeap implements Heap{
 
         int root = 0, left = 1, right = 2;
         heap[0] = last;
+
+//        heapify
         while(left <= index ){
             if(heap[root] <= heap[left] && heap[root] <= heap[right]){
                 return key;
@@ -83,7 +83,12 @@ public class BinaryHeap implements Heap{
         }
     return key;
     }
-    
 
+   public void display(){
+        for(int i = 0; i < index+1; i++){
+            System.out.print(heap[i]+" ");
+        }
+       System.out.println();
+   }
 
 }
